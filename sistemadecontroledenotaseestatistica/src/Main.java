@@ -11,7 +11,7 @@ public class Main {
             sc.nextLine();
 
             String[] nomes = new String[totalalunos];
-            double[][] notas = new double[totalalunos][2];
+            double[][] notas = new double[totalalunos][3];
             double[] medias = new double[totalalunos];
 
             double somaMedia = 0;
@@ -22,14 +22,14 @@ public class Main {
             int recuperacao = 0;
             int reprovados = 0;
 
-            for ( int i = 0; i < totalalunos; i++ ) {
+            for ( int i = 1; i < totalalunos; i++ ) {
                 System.out.print("Aluno " + i + ": ");
                 nomes[i] = sc.nextLine();
 
-                for ( int j = 0; j < totalalunos; j++ ) {
+                for ( int j = 1; j <= 2; j++ ) {
                     boolean notaValida;
                     do {
-                        System.out.print ("Nota " + (j +1 ) + " de " + nomes[i] + ": ");
+                        System.out.print ("Nota " + j + " de " + nomes[i] + ": ");
                         notas[i][j] = sc.nextDouble();
                         notaValida = notas[i][j] >= 0 && notas[i][j] <= 10;
                         if (!notaValida) {
