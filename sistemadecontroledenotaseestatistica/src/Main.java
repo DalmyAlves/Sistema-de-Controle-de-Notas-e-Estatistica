@@ -11,7 +11,7 @@ public class Main {
             sc.nextLine();
 
             String[] nomes = new String[totalalunos];
-            double[][] notas = new double[totalalunos][3];
+            double[][] notas = new double[totalalunos][2];
             double[] medias = new double[totalalunos];
 
             double somaMedia = 0;
@@ -22,14 +22,14 @@ public class Main {
             int recuperacao = 0;
             int reprovados = 0;
 
-            for ( int i = 1; i < totalalunos; i++ ) {
-                System.out.print("Aluno " + i + ": ");
+            for ( int i = 0; i < totalalunos; i++ ) {
+                System.out.print("Nome do aluno(a) " + (i +1) + ": ");
                 nomes[i] = sc.nextLine();
 
-                for ( int j = 1; j <= 2; j++ ) {
+                for ( int j = 0; j < 2; j++ ) {
                     boolean notaValida;
                     do {
-                        System.out.print ("Nota " + j + " de " + nomes[i] + ": ");
+                        System.out.print ("Nota " + (j +1 ) + " de " + nomes[i] + ": ");
                         notas[i][j] = sc.nextDouble();
                         notaValida = notas[i][j] >= 0 && notas[i][j] <= 10;
                         if (!notaValida) {
@@ -49,7 +49,7 @@ public class Main {
                 medias[i] = (notas[i][0] + notas[i][1]) / 2.0;
                 somaMedia += medias[i];
 
-                if (medias[i] >=7){
+                if (medias[i] >= 7){
                     aprovados++;
                 } else if (medias[i] >= 5 ){
                     recuperacao++;
@@ -60,9 +60,9 @@ public class Main {
             System.out.println ("\nResultados:");
             for ( int i = 0; i < totalalunos; i++ ) {
                 String status;
-                if (medias[i] > 7) {
+                if (medias[i] >= 7) {
                     status = "aprovado";
-                } else if (medias[i] > 5) {
+                } else if (medias[i] >= 5) {
                     status = "Recuperação";
                 } else {
                     status = "reprovado";
